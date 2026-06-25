@@ -12,9 +12,12 @@ folders = [
     f"data/raw",
     f"data/processed",
     f"notebooks",
+    f"src/data_ingestion.py",
+    f"src/live_nav_fetch.py",
     f"sql",
     f"dashboard",
-    f"reports"
+    f"reports",
+    
 ]
 
 
