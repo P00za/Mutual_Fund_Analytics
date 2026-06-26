@@ -1,83 +1,84 @@
+
 import pandas as pd
-from pathlib import Path
 
-RAW_DIR = Path("data/raw")
-REPORT_DIR = Path("reports")
-REPORT_DIR.mkdir(parents=True, exist_ok=True)
+print("*******Data Ingestion Started*******")
 
-fund_master = pd.read_csv(RAW_DIR / "fund_master.csv")
-nav_history = pd.read_csv(RAW_DIR / "nav_history.csv")
+print("\n ***** 01_fund_master.csv *****\n")
 
-print("Fund Master Shape:", fund_master.shape)
-print("NAV History Shape:", nav_history.shape)
+df = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\01_fund_master.csv")
+print("Top 5 rows and columns of the dataset : \n",df.head())
+print("Shape of the dataset : \n",df.shape)
+print("Data types of the dataset : \n",df.dtypes)
+print("Columns of the dataset : \n",df.columns)
 
-print("\nFund Master Head:")
-print(fund_master.head())
+print("\n ***** 02_nav_history.csv *****\n")
 
-print("\nNAV History Head:")
-print(nav_history.head())
+df1 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\02_nav_history.csv")
+print("Top 5 rows and columns of the dataset : \n",df1.head())
+print("Shape of the dataset : \n",df1.shape)
+print("Data types of the dataset : \n",df1.dtypes)
+print("Columns of the dataset : \n",df1.columns)
 
-print("\nFund Master Dtypes:")
-print(fund_master.dtypes)
+print("\n ***** 03_aum_by_fund_house.csv *****\n")
 
-print("\nNAV History Dtypes:")
-print(nav_history.dtypes)
+df2 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\03_aum_by_fund_house.csv")
+print("Top 5 rows and columns of the dataset : \n",df2.head())
+print("Shape of the dataset : \n",df2.shape)
+print("Data types of the dataset : \n",df2.dtypes)
+print("Columns of the dataset : \n",df2.columns)
 
-# Validate AMFI / scheme codes
-master_codes = set(fund_master["scheme_code"])
-nav_codes = set(nav_history["scheme_code"])
+print("\n ***** 04_monthly_sip_inflows.csv *****\n")
 
-missing_codes = master_codes - nav_codes
+df3 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\04_monthly_sip_inflows.csv")
+print("Top 5 rows and columns of the dataset : \n",df3.head())
+print("Shape of the dataset : \n",df3.shape)
+print("Data types of the dataset : \n",df3.dtypes)
+print("Columns of the dataset : \n",df3.columns)
 
-print("\nMissing Scheme Codes:")
-print(missing_codes)
+print("\n ***** 05_category_inflows.csv *****\n")
 
-# Data quality checks
-fund_master_missing = fund_master.isnull().sum()
-nav_history_missing = nav_history.isnull().sum()
+df4 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\05_category_inflows.csv")
+print("Top 5 rows and columns of the dataset : \n",df4.head())
+print("Shape of the dataset : \n",df4.shape)
+print("Data types of the dataset : \n",df4.dtypes)
+print("Columns of the dataset : \n",df4.columns)
 
-fund_master_duplicates = fund_master.duplicated().sum()
-nav_history_duplicates = nav_history.duplicated().sum()
+print("\n ***** 06_industry_folio_count.csv *****\n")
 
-# Create summary report
-report = f"""
-# Data Quality Summary
+df5 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\06_industry_folio_count.csv")
+print("Top 5 rows and columns of the dataset : \n",df5.head())
+print("Shape of the dataset : \n",df5.shape)
+print("Data types of the dataset : \n",df5.dtypes)
+print("Columns of the dataset : \n",df5.columns)
 
-## Files Checked
+print("\n ***** 07_scheme_performance.csv *****\n")
 
-- fund_master.csv
-- nav_history.csv
+df6 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\07_scheme_performance.csv")
+print("Top 5 rows and columns of the dataset : \n",df6.head())
+print("Shape of the dataset : \n",df6.shape)
+print("Data types of the dataset : \n",df6.dtypes)
+print("Columns of the dataset : \n",df6.columns)
 
-## Dataset Shapes
+print("\n ***** 08_investor_transactions.csv *****\n")
 
-- fund_master: {fund_master.shape}
-- nav_history: {nav_history.shape}
+df7 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\08_investor_transactions.csv")
+print("Top 5 rows and columns of the dataset : \n",df7.head())
+print("Shape of the dataset : \n",df7.shape)
+print("Data types of the dataset : \n",df7.dtypes)
+print("Columns of the dataset : \n",df7.columns)
 
-## Duplicate Rows
+print("\n ***** 09_portfolio_holdings.csv *****\n")
 
-- fund_master duplicates: {fund_master_duplicates}
-- nav_history duplicates: {nav_history_duplicates}
+df8 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\09_portfolio_holdings.csv")
+print("Top 5 rows and columns of the dataset : \n",df8.head())
+print("Shape of the dataset : \n",df8.shape)
+print("Data types of the dataset : \n",df8.dtypes)
+print("Columns of the dataset : \n",df8.columns)
 
-## Missing AMFI / Scheme Codes
+print("\n ***** 10_benchmark_indices.csv *****\n")
 
-- Total missing scheme codes: {len(missing_codes)}
-- Missing codes: {list(missing_codes)}
-
-## Missing Values in fund_master
-
-{fund_master_missing.to_string()}
-
-## Missing Values in nav_history
-
-{nav_history_missing.to_string()}
-
-## Summary
-
-All scheme codes from fund_master were checked against nav_history.
-Risk grade and sub-category were not available in the mfapi.in API response.
-"""
-
-with open(REPORT_DIR / "data_quality_summary.md", "w") as f:
-    f.write(report)
-
-print("\nData quality summary saved in reports/data_quality_summary.md")
+df9 = pd.read_csv("C:\\Users\\p00za\\Desktop\\Code files\\CSV File\\10_benchmark_indices.csv")
+print("Top 5 rows and columns of the dataset : \n",df9.head())
+print("Shape of the dataset : \n",df9.shape)
+print("Data types of the dataset : \n",df9.dtypes)
+print("Columns of the dataset : \n",df9.columns)

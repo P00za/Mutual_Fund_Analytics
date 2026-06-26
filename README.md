@@ -1,5 +1,16 @@
 # Mutual Fund Analytics
 
+## How to run?
+
+### STEPS: 
+
+Clone the repository
+
+'''bash
+https://github.com/P00za/Mutual_Fund_Analytics.git
+
+'''
+
 ## Project Structure
 
 - data/raw
@@ -10,8 +21,17 @@
 - reports
 
 ## Setup
+###  Step 1: Create a vertual environment after opening the repository
 
-```bash
-python -m venv venv
-source venv/Scripts/activate
+'''bash
+
+python conda create -n BlueStock -y
+'''
+
+'''bash
+source conda activate BlueStock
+'''
+### Step 2:
+'''bash
 pip install -r requirements.txt
+'''
